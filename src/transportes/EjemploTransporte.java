@@ -68,4 +68,35 @@ public class EjemploTransporte {
         
         // #tres
     }
+    
+    @Test
+    public void subirPasajeros3() {
+    	
+    	Transporte colectivo = new Transporte(8);
+        Assert.assertEquals(8, colectivo.contarLugaresLibres());   
+        Assert.assertEquals(0, colectivo.contarLugaresOcupados());
+        Pasajero lucas = new Pasajero("Lucas");
+        Assert.assertEquals("Lucas", lucas.obtenerNombre());
+        Assert.assertTrue(lucas.obtenerVehiculo() == null);
+        
+        // #uno
+        
+        colectivo.subir(1, lucas);
+        Assert.assertTrue(lucas == colectivo.obtenerPasajero(1));
+        Assert.assertEquals(7, colectivo.contarLugaresLibres());   
+        Assert.assertEquals(1, colectivo.contarLugaresOcupados());
+        colectivo.subir(2, new Pasajero("Natalia"));
+        colectivo.subir(3, new Pasajero("Marcelo"));
+        Pasajero primero = colectivo.obtenerPasajero(1);
+        
+        // #dos
+        
+        Transporte transporte = colectivo;
+        Pasajero segundo = transporte.obtenerPasajero(2);
+        Pasajero tercero = transporte.obtenerPasajero(3);
+        Transporte bicicleta = new Transporte(1);
+        bicicleta.subir(1, tercero);
+        
+        // #tres
+    }
 }
