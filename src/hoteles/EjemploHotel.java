@@ -31,6 +31,8 @@ public class EjemploHotel {
 		lucia = null;
 		paula = new Huesped("Paula T");
 		hotel.ocupar(1, paula);
+		
+		// #tres
 	}
 
 	@Test
